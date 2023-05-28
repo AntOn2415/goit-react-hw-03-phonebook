@@ -1,1 +1,1 @@
-// export {default} from './ContactItem';
+export {default} from './ContactItem';
