@@ -21,11 +21,13 @@ class ContactForm extends Component {
 
   handleAddContact = e => {
     e.preventDefault();
+
     const newContact = {
       id: nanoid(),
       name: this.state.name.trim(),
       number: this.state.number.trim(),
     };
+    
     this.props.onAddContact(newContact);
     this.setState({ name: '', number: '' });
   };
