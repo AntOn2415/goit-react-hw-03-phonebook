@@ -10,7 +10,7 @@ const ContactList = ({ contacts, onDeleteContact }) => {
         <ContactItem
           key={contact.id}
           contact={contact}
-          onDeleteContact={onDeleteContact}
+          onDeleteContact={() => onDeleteContact(contact.id)}
         />
       ))}
     </ContactUl>
