@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
-import ContactList from './ContactList';
-import ContactForm from './ContactForm';
-import Filter from './Filter';
+import ContactList from './contactList';
+import ContactForm from './contactForm';
+import Filter from './filter';
 export class App extends Component {
   state = {
     contacts: [],
     filter: '',
+  };
+
+  componentDidMount() {
+    const  contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+
+if(parsedContacts) {
+this.setState({contacts: parsedContacts});
+}
+  };
+  
+  componentDidUpdate (prevState) {
+    if(this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts) )
+    }
   };
 
   changeFilter = e => {
@@ -39,21 +54,6 @@ export class App extends Component {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
-  };
-
-  componentDidMount() {
-    const  contacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contacts);
-
-if(parsedContacts) {
-this.setState({contacts: parsedContacts});
-}
-  };
-  
-  componentDidUpdate (prevState) {
-    if(this.state.contacts !== prevState.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts) )
-    }
   };
 
   render() {
