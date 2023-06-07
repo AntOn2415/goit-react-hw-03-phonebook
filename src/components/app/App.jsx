@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import ContactList from '../contactLists';
-import ContactForm from '../contactForms';
-import Filter from '../filters';
+import ContactList from '../contactList';
+import ContactForm from '../contactForm';
+import Filter from '../filter';
 import { ContainerDiv, TitleH1, TitleH2 } from './App.styled';
 
 
-export class App extends Component {
+class App extends Component {
   state = {
     contacts: [],
     filter: '',
@@ -78,3 +78,5 @@ this.setState({contacts: parsedContacts});
     );
   }
 }
+
+export default App;
