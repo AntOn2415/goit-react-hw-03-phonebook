@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import ContactList from './contactList';
-import ContactForm from './contactForm';
-import Filter from './filter';
+import ContactList from '../contactLists';
+import ContactForm from '../contactForms';
+import Filter from '../filters';
+import { ContainerDiv, TitleH1, TitleH2 } from './App.styled';
+
+
 export class App extends Component {
   state = {
     contacts: [],
@@ -61,17 +64,17 @@ this.setState({contacts: parsedContacts});
     const filterContact = this.getFilterContact();
 
     return (
-      <div className="container">
-        <h1 className="title">Phonebook</h1>
+      <ContainerDiv>
+        <TitleH1>Phonebook</TitleH1>
         <ContactForm onAddContact={this.addContact} />
 
-        <h2 className="title">Contacts</h2>
+        <TitleH2>Contacts</TitleH2>
         <Filter value={filter} onChangeFilter={this.changeFilter} />
         <ContactList
           contacts={filterContact}
           onDeleteContact={this.deleteContact}
         />
-      </div>
+      </ContainerDiv>
     );
   }
 }
