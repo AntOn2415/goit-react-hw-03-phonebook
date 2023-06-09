@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ContactList from '../contactList';
-import ContactForm from '../contactForm';
-import Filter from '../filter';
+import ContactList from '../ContactLists';
+import ContactForm from '../ContactForms';
+import Filter from '../Filters';
 import { ContainerDiv, TitleH1, TitleH2 } from './App.styled';
 
 
